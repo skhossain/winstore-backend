@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Resources\ProductCategoryResource;
-use App\Models\ProductCategory;
+use App\Http\Resources\CategoryResource;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -11,9 +11,9 @@ class ProductCategoryController extends Controller
 {
     public function index()
     {
-        $categories = ProductCategory::where('status', 'active')->get();
+        $categories = Category::where('status', 'active')->get();
         return response()->json(
-            ProductCategoryResource::collection($categories)->pluck('name')
+            CategoryResource::collection($categories)->pluck('name')
         );
     }
 }

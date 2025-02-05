@@ -25,7 +25,7 @@ class Product extends Model
     // Relationship with Category
     public function category()
     {
-        return $this->belongsTo(ProductCategory::class);
+        return $this->belongsTo(Category::class);
     }
 
     // Relationship with Brand

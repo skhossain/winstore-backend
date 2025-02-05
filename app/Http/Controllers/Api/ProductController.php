@@ -112,4 +112,14 @@ class ProductController extends Controller
         // Return response with ProductResource
         return response()->json(ProductResource::collection($products));
     }
+
+    public function allProducts()
+    {
+        $products = Product::paginate(10);
+
+        return response()->json([
+            'status' => 'success',
+            'products' => $products
+        ], 200);
+    }
 }   
